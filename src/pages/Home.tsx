@@ -1,91 +1,114 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, MessageSquare, Workflow, Sparkles, ArrowRight, CheckCircle } from "lucide-react";
+import { Phone, MessageSquare, Workflow, Sparkles, ArrowRight, CheckCircle, Quote } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 
 const Home = () => {
   const features = [
     {
       icon: Phone,
-      title: "Customer Calling Service",
-      description: "Automated customer calling powered by AI voice technology. Handle appointment reminders, follow-ups, and lead engagement without manual effort.",
+      title: "Customer Calling AI",
+      description: "Engage leads and customers with AI-driven calling services that sound natural and save your team hours.",
     },
     {
       icon: MessageSquare,
-      title: "WhatsApp Automation Service",
-      description: "Automate customer conversations, send notifications, run marketing campaigns, and provide instant support via WhatsApp AI bots.",
+      title: "WhatsApp Automation",
+      description: "Automate customer conversations, send instant updates, and run marketing campaigns on WhatsApp.",
     },
     {
       icon: Workflow,
       title: "n8n Workflow Automation",
-      description: "Seamlessly connect your apps and automate workflows with n8n. From CRM updates to notifications, streamline operations using custom automation flows.",
+      description: "Seamlessly integrate apps and build automation flows to cut repetitive tasks and boost productivity.",
     },
     {
       icon: Sparkles,
       title: "Custom AI Solutions",
-      description: "We build tailored AI solutions such as chatbots, predictive models, and process automation designed to match your unique business needs.",
+      description: "Tailored AI development including chatbots, predictive models, and automation tools for your unique needs.",
     },
   ];
 
-  const benefits = [
-    "24/7 automated operations",
-    "Reduce operational costs by up to 60%",
-    "Improve customer response time",
-    "Scalable solutions that grow with you",
-    "Expert support and implementation",
+  const testimonials = [
+    {
+      quote: "FOGI IO's AI automation transformed how we interact with customers. Calls and WhatsApp responses are now fully automated and professional.",
+      author: "Rahul Sharma",
+      role: "Business Owner",
+    },
+    {
+      quote: "Their n8n workflows saved our team countless hours. Highly recommended for anyone serious about automation.",
+      author: "Ananya Gupta",
+      role: "Operations Manager",
+    },
+  ];
+
+  const pricingPlans = [
+    {
+      title: "Starter",
+      price: "$99",
+      period: "/month",
+      features: ["AI Calling (100 calls)", "WhatsApp Bot (Basic)", "Basic n8n Workflows"],
+      cta: "Get Started",
+    },
+    {
+      title: "Professional",
+      price: "$299",
+      period: "/month",
+      features: ["AI Calling (500 calls)", "WhatsApp Pro Automation", "Advanced n8n Workflows", "Priority Support"],
+      cta: "Upgrade Now",
+      highlighted: true,
+    },
+    {
+      title: "Enterprise",
+      price: "Custom",
+      period: "",
+      features: ["Unlimited AI Calls", "Full WhatsApp Automation", "Enterprise n8n Workflows", "Dedicated AI Solutions"],
+      cta: "Contact Us",
+    },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Animated Gradient */}
       <section className="relative pt-24 pb-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0 animate-gradient-shift"
+          style={{
+            background: 'linear-gradient(-45deg, hsl(203 53% 12%), hsl(203 53% 22%), hsl(14 100% 60%), hsl(122 39% 49%))',
+            backgroundSize: '400% 400%',
+            animation: 'gradient 15s ease infinite',
+          }}
+        />
         <div 
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.15,
+            opacity: 0.1,
+            mixBlendMode: 'overlay',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background z-0" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full">
-              <span className="text-secondary font-medium text-sm">Next Generation AI Automation</span>
-            </div>
-            
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-              FOGI IO
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-foreground">
+              Automate. Scale. Succeed.
             </h1>
             
             <p className="text-xl sm:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Boost your business efficiency with AI-powered automation services like customer calling, WhatsApp automation, n8n workflows, and more.
+              FOGI IO delivers AI automation solutions that transform customer engagement and business efficiency.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6"
-              >
-                <Link to="/contact">
-                  Get Started <ArrowRight className="ml-2" size={20} />
-                </Link>
-              </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6"
-              >
-                <Link to="/services">
-                  Explore Services
-                </Link>
-              </Button>
-            </div>
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-secondary hover:opacity-90 text-lg px-8 py-6"
+            >
+              <Link to="/contact">
+                Book a Free Consultation <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -94,7 +117,7 @@ const Home = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Our AI Services</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Our AI-Powered Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive automation solutions designed to transform your business operations
             </p>
@@ -107,8 +130,8 @@ const Home = () => {
                 className="border-2 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <CardHeader>
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
-                    <feature.icon className="text-primary-foreground" size={28} />
+                  <div className="w-14 h-14 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-4">
+                    <feature.icon className="text-secondary-foreground" size={28} />
                   </div>
                   <CardTitle className="text-2xl">{feature.title}</CardTitle>
                 </CardHeader>
@@ -126,52 +149,90 @@ const Home = () => {
       {/* About Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-6">Why Choose FOGI IO?</h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                At FOGI IO, we specialize in simplifying business operations with intelligent automation. Our AI-driven tools ensure faster, smarter, and more cost-effective ways to engage customers and manage workflows.
-              </p>
-              
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="text-secondary mt-1 flex-shrink-0" size={20} />
-                    <span className="text-foreground">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Why FOGI IO?</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              At FOGI IO, we combine technology and creativity to deliver automation solutions that actually work. With our expertise in AI and automation, businesses save time, increase conversions, and provide smarter customer experiences.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl" />
-              <Card className="relative border-2 border-secondary/20 overflow-hidden">
+      {/* Testimonials Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">What Our Clients Say</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-2 hover:border-secondary/30 transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
-                        <Sparkles className="text-primary-foreground" size={32} />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl">AI-Powered Excellence</h3>
-                        <p className="text-muted-foreground">Cutting-edge technology</p>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-4 bg-muted/50 rounded-xl">
-                        <p className="text-3xl font-bold text-primary mb-1">100+</p>
-                        <p className="text-sm text-muted-foreground">Clients Served</p>
-                      </div>
-                      <div className="text-center p-4 bg-muted/50 rounded-xl">
-                        <p className="text-3xl font-bold text-secondary mb-1">99%</p>
-                        <p className="text-sm text-muted-foreground">Satisfaction Rate</p>
-                      </div>
-                    </div>
+                  <Quote className="text-secondary mb-4" size={32} />
+                  <p className="text-lg text-foreground mb-6 leading-relaxed italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div>
+                    <p className="font-semibold text-foreground">{testimonial.author}</p>
+                    <p className="text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">Choose Your Plan</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Select the perfect automation plan for your business needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <Card 
+                key={index} 
+                className={`border-2 transition-all duration-300 hover:shadow-lg ${
+                  plan.highlighted 
+                    ? 'border-secondary shadow-lg scale-105' 
+                    : 'border-border hover:border-secondary/50'
+                }`}
+              >
+                <CardHeader>
+                  <CardTitle className="text-2xl">{plan.title}</CardTitle>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
+                    {plan.period && <span className="text-muted-foreground">{plan.period}</span>}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <CheckCircle className="text-accent mt-1 flex-shrink-0" size={18} />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    asChild 
+                    className={`w-full ${
+                      plan.highlighted 
+                        ? 'bg-secondary hover:opacity-90' 
+                        : 'bg-primary hover:opacity-90'
+                    }`}
+                  >
+                    <Link to="/contact">{plan.cta}</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -186,21 +247,34 @@ const Home = () => {
               Ready to Automate Your Business?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Contact us today and discover how AI can transform your business operations.
+              Let FOGI IO show you how AI can transform your operations.
             </p>
             <Button 
               asChild 
               size="lg" 
-              variant="secondary"
               className="bg-background text-primary hover:bg-background/90 text-lg px-8 py-6"
             >
               <Link to="/contact">
-                Contact Us <ArrowRight className="ml-2" size={20} />
+                Contact Us Today <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>
           </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
     </div>
   );
 };

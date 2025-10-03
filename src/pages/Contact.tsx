@@ -11,6 +11,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +23,7 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       toast.success("Message sent successfully! We'll get back to you soon.");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
       setIsSubmitting(false);
     }, 1000);
   };
@@ -42,7 +43,7 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl sm:text-6xl font-bold mb-6">Get In Touch</h1>
             <p className="text-xl text-muted-foreground">
-              Have questions or need a custom AI solution? We're here to help transform your business with intelligent automation.
+              We'd love to hear from you. Let's talk about how AI can help your business.
             </p>
           </div>
         </div>
@@ -85,6 +86,19 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      className="border-2 focus:border-secondary"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="border-2 focus:border-secondary"
                     />
                   </div>
