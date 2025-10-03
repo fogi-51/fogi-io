@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   return (
@@ -6,10 +7,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-secondary-foreground font-bold text-xl">F</span>
-              </div>
+            <Link to="/" className="flex items-center space-x-3 mb-4">
+              <img 
+                src={logo} 
+                alt="FOGI IO Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <span className="font-bold text-xl">FOGI IO</span>
             </Link>
             <p className="text-primary-foreground/80 mb-4 max-w-md">
