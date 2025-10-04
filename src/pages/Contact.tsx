@@ -54,12 +54,18 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const { supabase } = await import("@/integrations/supabase/client");
       
+      const { error } = await supabase.functions.invoke("send-contact-email", {
+        body: data,
+      });
+
+      if (error) throw error;
+
       toast.success("Message sent successfully! We'll get back to you soon.");
       form.reset();
     } catch (error) {
+      console.error("Error sending message:", error);
       toast.error("Failed to send message. Please try again.");
     }
   };
